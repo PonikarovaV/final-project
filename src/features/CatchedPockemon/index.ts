@@ -1,0 +1,1 @@
+export { CatchedPockemon } from './CatchedPockemon';
