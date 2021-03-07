@@ -1,19 +1,40 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "bundle.js"
+    // path: path.join(__dirname, '/dist'),
+    path: path.resolve('dist'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              compilerOptions: {
+                module: 'esnext',
+                moduleResolution: 'node',
+                target: 'es5',
+                noEmit: false,
+              },
+            },
+          },
+        ],
+        resolve: {
+          extensions: ['.ts', '.tsx', '.js'],
         },
       },
       {
