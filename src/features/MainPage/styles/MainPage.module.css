@@ -1,8 +1,3 @@
-.main {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
 .main__wrapper {
   display: flex;
   flex-direction: column;
@@ -85,5 +80,15 @@
 
   .main__collapse {
     left: 5%;
+  }
+}
+
+@media (max-width: 720px) {
+  .main__scroll {
+    display: none;
+  }
+
+  .main__collapse {
+    display: none;
   }
 }

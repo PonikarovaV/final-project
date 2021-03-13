@@ -6,10 +6,11 @@ import classes from './styles/MenuItem.module.css';
 interface MenuItemProps {
   description: string,
   link: string,
+  onCloseMenu: () => void,
 }
 
 export const MenuItem = (props: MenuItemProps) => {
-  const { description, link } = props;
+  const { description, link, onCloseMenu } = props;
 
   const { pathname } = useLocation();
 
@@ -18,6 +19,8 @@ export const MenuItem = (props: MenuItemProps) => {
       ? `${classes.menu__link} ${classes.menu__link_active}`
       : classes.menu__link
   ), [link, pathname]);
+
+  React.useEffect(() => () => onCloseMenu(), [onCloseMenu]);
 
   return (
     <li className={classes.menu__item}>

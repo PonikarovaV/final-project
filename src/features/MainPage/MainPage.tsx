@@ -12,6 +12,9 @@ import classes from './styles/MainPage.module.css';
 export const MainPage = () => {
   const { pokemonList } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);
+  const {
+    headerOffsetHeight, fooretOffsetHeigth,
+  } = useSelector((state: RootState) => state.metrics);
 
   const loadMoreClickHandler = () => dispatch.pokemon.getPokemonList();
   const collapseClickHandler = () => dispatch.pokemon.collapsedPokemonList();
@@ -25,12 +28,21 @@ export const MainPage = () => {
     dispatch.pokemon.getPokemonList();
   }, [pokemonList.length]);
 
-  if (isLoading) {
+  if (isLoading && !pokemonList.length) {
     return <Loader />;
   }
 
+  if (!pokemonList.length) {
+    return null;
+  }
+
   return (
-    <div className={classes.main}>
+    <div
+      style={{
+        paddingTop: `${(headerOffsetHeight ?? 0) + 20}px`,
+        paddingBottom: `${(fooretOffsetHeigth ?? 0) + 20}px`,
+      }}
+    >
       <Wrapper classMix={classes.main__wrapper}>
         <button
           onClick={collapseClickHandler}
@@ -58,7 +70,7 @@ export const MainPage = () => {
           className={classes['main__load-more']}
           type="button"
         >
-          Load more
+          {isLoading ? 'Loading...' : 'Load more'}
         </button>
       </Wrapper>
     </div>

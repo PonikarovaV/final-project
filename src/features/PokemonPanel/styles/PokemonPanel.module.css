@@ -77,3 +77,45 @@
   background-color: #e4524f;
   color: #F9F7F7;
 }
+
+@media (max-width: 720px) {
+  .pokemon-panel {
+    padding: 15px 15px;
+    flex-direction: column;
+  }
+
+  .pokemon-panel__icon {
+    margin: 0 auto 20px;
+    order: 1;
+  }
+
+  .pokemon-panel__name {
+    margin: 0 auto 15px;
+    text-align: center;
+    order: 2;
+  }
+
+  .pokemon-panel__button {
+    order: 3;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .pokemon-panel__name {
+    font-size: calc((100vw - 320px)/(1100 - 320) * (26 - 16) + 16px);
+  }
+
+  .pokemon-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 319px) {
+  .pokemon-panel__name {
+    font-size: 16px;
+  }
+
+  .pokemon-panel {
+    width: 100%;
+  }
+}

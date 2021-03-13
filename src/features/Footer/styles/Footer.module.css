@@ -18,3 +18,53 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.footer__buttons {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.footer__button {
+  box-sizing: border-box;
+  padding: 4px 6px;
+
+  border: 2px solid #F9F7F7;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: #F9F7F7;
+
+  background-color: unset;
+
+  opacity: 1;
+}
+
+.footer__button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .footer__buttons {
+    display: grid;
+    order: 1;
+    margin: 0 auto 20px;
+  }
+
+  .footer__wrapper {
+    flex-direction: column;
+  }
+
+  .footer__copyright {
+    margin: 0 auto;
+    order: 2;
+    
+    font-size: 12px;
+    line-height: 1;
+  }
+}

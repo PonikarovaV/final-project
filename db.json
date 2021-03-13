@@ -6,21 +6,15 @@
     },
     {
       "name": "ivysaur",
-      "id": 2,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 2
     },
     {
       "name": "venusaur",
-      "id": 3,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 3
     },
     {
       "name": "charmander",
-      "id": 4,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 4
     },
     {
       "name": "charmeleon",
@@ -32,9 +26,7 @@
     },
     {
       "name": "squirtle",
-      "id": 7,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 7
     },
     {
       "name": "wartortle",
@@ -46,9 +38,7 @@
     },
     {
       "name": "caterpie",
-      "id": 10,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 10
     },
     {
       "name": "metapod",
@@ -64,21 +54,15 @@
     },
     {
       "name": "kakuna",
-      "id": 14,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 14
     },
     {
       "name": "beedrill",
-      "id": 15,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 15
     },
     {
       "name": "pidgey",
-      "id": 16,
-      "catched": true,
-      "catchDate": "13.03.2021"
+      "id": 16
     },
     {
       "name": "pidgeotto",

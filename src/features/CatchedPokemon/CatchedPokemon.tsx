@@ -11,6 +11,9 @@ import { Loader } from '../Loader';
 export const CatchedPokemon = () => {
   const { catchedPokemonList } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);
+  const {
+    headerOffsetHeight, fooretOffsetHeigth,
+  } = useSelector((state: RootState) => state.metrics);
 
   React.useEffect(() => {
     if (catchedPokemonList.length) {
@@ -24,8 +27,17 @@ export const CatchedPokemon = () => {
     return <Loader />;
   }
 
+  if (!catchedPokemonList.length) {
+    return null;
+  }
+
   return (
-    <div className={classes['catche-pokemons']}>
+    <div
+      style={{
+        paddingTop: `${(headerOffsetHeight ?? 0) + 20}px`,
+        paddingBottom: `${(fooretOffsetHeigth ?? 0) + 20}px`,
+      }}
+    >
       <Wrapper classMix={classes['catche-pokemons__wrapper']}>
         {!!catchedPokemonList && catchedPokemonList.map((item: Pokemon) => (
           <PokemonPanel

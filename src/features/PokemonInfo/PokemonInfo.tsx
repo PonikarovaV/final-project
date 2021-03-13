@@ -11,6 +11,9 @@ import classes from './styles/pokemonInfo.module.css';
 export const PokemonInfo = () => {
   const { currentPokemon } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);
+  const {
+    headerOffsetHeight, fooretOffsetHeigth,
+  } = useSelector((state: RootState) => state.metrics);
 
   const parsedQuery = useParsedQuery();
   const pokemonId = parsedQuery.id;
@@ -27,16 +30,21 @@ export const PokemonInfo = () => {
     dispatch.pokemon.getCurrentPokemon(numberId);
   }, [pokemonId]);
 
-  if (!currentPokemon) {
-    return null;
-  }
-
   if (isLoading) {
     return <Loader />;
   }
 
+  if (!currentPokemon) {
+    return null;
+  }
+
   return (
-    <div className={classes['pokemon-info']}>
+    <div
+      style={{
+        paddingTop: `${(headerOffsetHeight ?? 0) + 20}px`,
+        paddingBottom: `${(fooretOffsetHeigth ?? 0) + 20}px`,
+      }}
+    >
       <Wrapper classMix={classes['pokemon-info__wrapper']}>
         <div>
           <p className={classes['pokemon-info__name']}>{currentPokemon.name || 'Unknown'}</p>
