@@ -1,0 +1,1 @@
+export { PokemonPanel } from './PokemonPanel';

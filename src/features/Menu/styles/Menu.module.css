@@ -1,0 +1,13 @@
+.menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu__list {
+  padding-left: 0;
+
+  margin: 0;
+
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,4 +1,7 @@
-import React from "react";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+
+import classes from './styles/MenuItem.module.css';
 
 interface MenuItemProps {
   description: string,
@@ -6,10 +9,19 @@ interface MenuItemProps {
 }
 
 export const MenuItem = (props: MenuItemProps) => {
+  const { description, link } = props;
+
+  const { pathname } = useLocation();
+
+  const linkClasses = React.useMemo(() => (
+    pathname === link
+      ? `${classes.menu__link} ${classes.menu__link_active}`
+      : classes.menu__link
+  ), [link, pathname]);
 
   return (
-    <li className='menu__item'>
-      <a className='menu__link' href={props.link}>{props.description}</a>
+    <li className={classes.menu__item}>
+      <a className={linkClasses} href={link}>{description}</a>
     </li>
   );
-}
+};

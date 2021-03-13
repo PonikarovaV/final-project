@@ -1,8 +1,12 @@
-import React from "react";
+import React from 'react';
+import { Wrapper } from '../Wrapper';
 
-export const Footer = () => {
+import classes from './styles/Footer.module.css';
 
-  return (
-    <p>Footer</p>
-  );
-}
+export const Footer = () => (
+  <footer className={classes.footer}>
+    <Wrapper classMix={classes.footer__wrapper}>
+      <span>&copy; Vanda Ponikarova</span>
+    </Wrapper>
+  </footer>
+);

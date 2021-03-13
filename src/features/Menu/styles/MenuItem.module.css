@@ -1,0 +1,27 @@
+.menu__item {
+  box-sizing: border-box;
+  padding: 7px;
+
+  list-style: none;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: #F9F7F7;
+
+  opacity: 0.7;
+
+  font-size: 16px;
+  font-weight: regular;
+  line-height: 1;
+}
+
+.menu__link_active {
+  text-decoration: underline;
+
+  opacity: 1;
+}
+
+.menu__link:hover {
+  opacity: 0.5;
+}

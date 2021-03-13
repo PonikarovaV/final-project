@@ -13,7 +13,6 @@ export const store = init({
       router,
     },
     middlewares: [routerMiddleware(history)],
-    devtoolOptions: {},
   },
 });
 

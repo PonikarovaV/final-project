@@ -7,6 +7,8 @@ import { App } from './App';
 import { store } from './store';
 import { ErrorBoundary } from './features/ErrorHandling/ErrorBoundary';
 
+import './index.css';
+
 const element = (
   <Provider store={store}>
     <ConnectedRouter history={history}>

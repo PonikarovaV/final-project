@@ -1,1 +1,0 @@
-export { PockemonInfo } from './PockemonInfo';

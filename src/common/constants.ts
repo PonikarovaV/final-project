@@ -1,7 +1,7 @@
 export const URL = {
   mainPage: '/',
-  pockemonInfo: '/pockemon/:id',
-  catchedPockemon: '/pockemon/catched',
+  pokemonInfo: '/pokemons',
+  catchedpokemon: '/pokemons/catched',
 };
 
 export const MENU_ITEMS = [
@@ -12,7 +12,9 @@ export const MENU_ITEMS = [
   },
   {
     id: 2,
-    description: 'Catched Pockemons',
-    link: URL.catchedPockemon,
+    description: 'Catched pokemons',
+    link: URL.catchedpokemon,
   },
 ];
+
+export const POKEMONS_ON_PAGE = 10;

@@ -91,8 +91,6 @@ module.exports = {
       'jsx-a11y/label-has-for': 'off',
       'jsx-a11y/no-static-element-interactions': 'off',
   
-      'optimize-regex/optimize-regex': 'warn',
-  
       'react/jsx-props-no-spreading': 'off',
       // обязательные дефолтные пропсы нам не нужны, если параметр обязателен, это будет указано в типах
       'react/require-default-props': 'off',

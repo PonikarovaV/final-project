@@ -1,0 +1,1 @@
+export { useParsedQuery } from './useParsedQuery';
