@@ -4,6 +4,7 @@ import { RootState } from '../../store';
 
 import classes from './styles/Loader.module.css';
 
+/** Элемент индикации загрузки */
 export const Loader = () => {
   const { isLoading } = useSelector((state: RootState) => state.loader);
 

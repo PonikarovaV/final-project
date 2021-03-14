@@ -9,6 +9,7 @@ interface MenuItemProps {
   onCloseMenu: () => void,
 }
 
+/** Элемент меню */
 export const MenuItem = (props: MenuItemProps) => {
   const { description, link, onCloseMenu } = props;
 

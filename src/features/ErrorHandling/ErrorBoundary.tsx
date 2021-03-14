@@ -8,6 +8,7 @@ interface ErrorBoundaryState {
   hasError: boolean,
 }
 
+/** Обработчик ошибок */
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
@@ -26,10 +27,13 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children;
+    return children;
   }
 }

@@ -8,6 +8,7 @@ import { URL } from '../../common/constants';
 
 import classes from './styles/Footer.module.css';
 
+/** Футер страницы */
 export const Footer = () => {
   const { pathname } = useLocation();
 

@@ -8,6 +8,7 @@ import { PokemonPanel } from '../PokemonPanel/PokemonPanel';
 import classes from './styles/Catchedpokemon.module.css';
 import { Loader } from '../Loader';
 
+/** Страница пойманных покемонов */
 export const CatchedPokemon = () => {
   const { catchedPokemonList } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);
@@ -27,10 +28,6 @@ export const CatchedPokemon = () => {
     return <Loader />;
   }
 
-  if (!catchedPokemonList.length) {
-    return null;
-  }
-
   return (
     <div
       style={{
@@ -39,7 +36,8 @@ export const CatchedPokemon = () => {
       }}
     >
       <Wrapper classMix={classes['catche-pokemons__wrapper']}>
-        {!!catchedPokemonList && catchedPokemonList.map((item: Pokemon) => (
+        {!catchedPokemonList.length && <h2>There are no pokemons here :(</h2>}
+        {!!catchedPokemonList.length && catchedPokemonList.map((item: Pokemon) => (
           <PokemonPanel
             key={item.id}
             data={item}

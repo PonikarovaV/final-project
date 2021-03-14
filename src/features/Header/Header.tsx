@@ -6,6 +6,7 @@ import { Wrapper } from '../Wrapper';
 
 import classes from './styles/Header.module.css';
 
+/** Header страницы */
 export const Header = () => {
   const headerElement = React.useRef<HTMLElement | null>(null);
 

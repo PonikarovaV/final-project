@@ -4,6 +4,7 @@ import { dispatch, RootState } from '../../store';
 
 import classes from './styles/ErrorModal.module.css';
 
+/** Модальное окно для отображения ошибок */
 export const ErrorModal = () => {
   const { error } = useSelector((state: RootState) => state.modal);
 

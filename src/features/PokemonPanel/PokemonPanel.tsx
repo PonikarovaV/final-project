@@ -12,6 +12,7 @@ interface PokemonPanelProps {
   shouldButtonRender: boolean,
 }
 
+/** Панель с информацией о покемоне */
 export const PokemonPanel = (props: PokemonPanelProps) => {
   const { data: { name, id, catched }, shouldButtonRender } = props;
 

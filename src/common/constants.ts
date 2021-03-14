@@ -1,9 +1,11 @@
+/** url страниц */
 export const URL = {
   mainPage: '/',
   pokemonInfo: '/pokemons',
   catchedpokemon: '/pokemons/catched',
 };
 
+/** Пункты меню */
 export const MENU_ITEMS = [
   {
     id: 1,
@@ -17,4 +19,5 @@ export const MENU_ITEMS = [
   },
 ];
 
+/** Количество покемонов для подгрузки на страницу */
 export const POKEMONS_ON_PAGE = 10;

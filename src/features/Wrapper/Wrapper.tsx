@@ -7,6 +7,7 @@ interface WrapperProps {
   classMix: string,
 }
 
+/** Обертка для контента в блоках */
 export const Wrapper = (props: WrapperProps) => {
   const { children, classMix } = props;
 

@@ -6,11 +6,15 @@ import { RootModel } from '../../store/models';
 import { Pokemon } from '../PokemonPanel/types';
 
 export interface PokemonState {
+  /** Список покемонов */
   pokemonList: Pokemon[],
+  /** Текущий покемон */
   currentPokemon: Pokemon| null,
+  /** Список пойманных покемонов */
   catchedPokemonList: Pokemon[],
 }
 
+/** Данные по покемонам */
 export const pokemon = createModel<RootModel>()({
   state: {
     pokemonList: [],
@@ -18,31 +22,39 @@ export const pokemon = createModel<RootModel>()({
     catchedPokemonList: [],
   } as PokemonState,
   reducers: {
+    /** Записать в стор список покемонов */
     setPokemonList: (state, payload: Pokemon[]) => ({
       ...state,
       pokemonList: [...state.pokemonList, ...payload],
     }),
+    /** Записать в стор текущего покемона */
     setCurrentPokemon: (state, payload: Pokemon) => ({
       ...state,
       currentPokemon: payload,
     }),
+    /** Записать в стор сокращенный список покемонов */
     collapsedPokemonList: (state) => ({
       ...state,
       pokemonList: state.pokemonList.slice(0, (POKEMONS_ON_PAGE - 1)),
     }),
+    /** Записать в стор обновленный пойманным покемоном список покемонов */
     setCatchedPokemon: (state, payload: Pokemon) => ({
       ...state,
       pokemonList: state.pokemonList.map((item) => (
         item.id === payload.id ? payload : item
       )),
     }),
+    /** Записать в стор список пойманных покемонов */
     setCatchedPokemonList: (state, payload: Pokemon[]) => ({
       ...state,
-      catchedPokemonList: payload,
+      // json-server отдает весь массив покемонов, если ни один не отвечает условию в запросе,
+      // поэтому дополнительный фильтр установлен на этот случай
+      catchedPokemonList: payload.filter((item: Pokemon) => !!item.catched),
     }),
   },
   effects: (dispatch) => ({
-    getPokemonList: async () => {
+    /** Получить список покемонов (по 10 за один запрос) */
+    getPokemonList: () => {
       dispatch.loader.setIsLoading(true);
 
       const { pokemonList } = getState().pokemon;
@@ -73,7 +85,8 @@ export const pokemon = createModel<RootModel>()({
           dispatch.loader.setIsLoading(false);
         });
     },
-    getCatchedPokemonList: async () => {
+    /** Получить список пойманных покемонов */
+    getCatchedPokemonList: () => {
       dispatch.loader.setIsLoading(true);
       fetch('http://localhost:3000/pokemons?catched=true', {
         method: 'GET',
@@ -95,7 +108,8 @@ export const pokemon = createModel<RootModel>()({
           dispatch.loader.setIsLoading(false);
         });
     },
-    getCurrentPokemon: async (id: number) => {
+    /** Получить покемона по id */
+    getCurrentPokemon: (id: number) => {
       dispatch.loader.setIsLoading(true);
 
       if (!id) {
@@ -122,7 +136,8 @@ export const pokemon = createModel<RootModel>()({
           dispatch.loader.setIsLoading(false);
         });
     },
-    catchPokemon: async (pokemonData: Pokemon) => {
+    /** Поймать покемона */
+    catchPokemon: (pokemonData: Pokemon) => {
       dispatch.loader.setIsLoading(true);
 
       if (!pokemonData) {

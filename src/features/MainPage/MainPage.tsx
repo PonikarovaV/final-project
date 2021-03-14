@@ -9,6 +9,7 @@ import { Loader } from '../Loader';
 
 import classes from './styles/MainPage.module.css';
 
+/** Главная страница */
 export const MainPage = () => {
   const { pokemonList } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);

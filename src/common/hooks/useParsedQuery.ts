@@ -5,7 +5,13 @@ export interface UseParsedQueryOutput {
   [x: string]: string | string[] | undefined,
 }
 
-/** Хук для получения распарсенных параметров query */
+/**
+ * Хук для получения распарсенных параметров query
+ *
+ * @example
+ * //returns { id: 2 } if search '?id=2'
+ * useParsedQuery();
+ * */
 export const useParsedQuery = (): UseParsedQueryOutput => {
   const { search } = useLocation();
 

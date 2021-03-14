@@ -8,6 +8,7 @@ import { useParsedQuery } from '../../common/hooks/useParsedQuery';
 
 import classes from './styles/pokemonInfo.module.css';
 
+/** Страница с информацией о выбранном покемоне */
 export const PokemonInfo = () => {
   const { currentPokemon } = useSelector((state: RootState) => state.pokemon);
   const { isLoading } = useSelector((state: RootState) => state.loader);

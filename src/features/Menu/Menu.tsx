@@ -4,6 +4,7 @@ import { MenuItem } from './MenuItem';
 
 import classes from './styles/Menu.module.css';
 
+/** Основное меню страницы */
 export const Menu = () => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 

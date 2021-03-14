@@ -1,5 +1,12 @@
 import { getFormattedDateItem } from './getFormattedDateItem';
 
+/**
+ * Функция возвращает форматированный элемент даты
+ *
+ * @example
+ * // returns '01.11.2021' - текущая дата
+ * getDateString();
+ * */
 export const getDateString = () => {
   const date = new Date();
 
